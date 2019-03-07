@@ -1,0 +1,35 @@
+{% load staticfiles i18n thumbnail %}
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/perfect-scrollbar.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'css/datepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.fancybox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    {% include 'include/seo.html' %}
+    {% block specific_for_page_seo %}{% endblock %}
+    {% block header_base %}{% endblock %}
+</head>
+<body>
+
+{% include 'include/menu.html' %}
+
+<div class="wrapper">
+  <main class="page-main" {% if is_main_page %}id="main-page"{% endif %}>
+      {% if is_main_page %}
+    {% include 'include/top-banner.html' %}
+{% endif %}
+      <h1 class="visually-hidden">Официальный сайт врио губернатора Астраханской области Сергея Морозова</h1>
+      {% block content %}{% endblock content %}
+  </main>
+{% include 'include/footer.html' %}
+</div>
+{% include 'include/scripts.html' %}
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+
+  postgres:
+     image: postgres:10-alpine
+     environment:
+        - POSTGRES_DB
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+     ports:
+        - '${POSTGRES_PORT}:5432'
+     volumes:
+        - .:/code
+  redis:
+     image: redis:alpine
+     ports:
+        - '6379:6379'
+

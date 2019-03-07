@@ -1,0 +1,62 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_REF_NAME
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY/$CI_PROJECT_PATH:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+    #  - test
+  - release
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build --pull -t $CONTAINER_TEST_IMAGE . --build-arg=secret_key=secret
+    - docker push $CONTAINER_TEST_IMAGE
+  only:
+    - staging
+    - master
+
+      #test:
+      #  image: $CI_REGISTRY/$CI_PROJECT_PATH:$CI_COMMIT_REF_NAME
+      #  stage: test
+      #  services:
+      #    - postgres:10-alpine
+      #  variables:
+      #    SECRET_KEY: runner
+      #    POSTGRES_DB: runner
+      #    POSTGRES_USER: runner
+      #    POSTGRES_PASSWORD: runner
+      #    POSTGRES_HOST: postgres
+      #    POSTGRES_PORT: ''
+      #    TEST: 1
+      #  script:
+      #    - ./backend/manage.py test -v 2 backend
+
+release-image:
+  stage: release
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - staging
+    - master
+
+deploy:
+  image: garpix/gitlab_deploy
+  stage: deploy
+  script:
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - ssh -o StrictHostKeyChecking=no root@astrakhan.staging.garpix.com bash /home/garpix/www/server/deploy.sh
+  only:
+    - staging
