@@ -32,11 +32,6 @@ docopt==0.6.2
 easy-thumbnails==2.6
 fcm-django==0.2.21
 futures==3.1.1
-garpix-admin==0.1.0
-garpix-menu==0.1.10
-garpix-notify==0.3.15
-garpix-page==0.2.1
-garpix-utils==0.3.1
 google-api-core==1.9.0
 google-auth==1.6.3
 google-cloud-core==0.29.1
