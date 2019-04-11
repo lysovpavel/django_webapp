@@ -15,7 +15,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media')
 TEMPLATES_PATH = os.path.join(BASE_DIR, '..', 'frontend', 'templates')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '..', 'frontend', 'src', 'static'),
+    os.path.join(BASE_DIR, '..', 'frontend', 'src', 'app', 'dist'),
+    os.path.join(BASE_DIR, '..', 'frontend', 'src', 'backend_static'),
 ]
 
 

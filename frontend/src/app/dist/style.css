@@ -1,0 +1,21 @@
+body {
+    font-size: 16px;
+}
+.logo-garpix {
+    color: red;
+    background-color: burlywood;
+    background-image: url(images/logo-garpix.svg);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+
+/*# sourceMappingURL=style.css.map*/

@@ -7,7 +7,7 @@ TEST = bool(os.getenv('TEST'))
 
 ALLOWED_HOSTS = ['*']
 
-DEFAULT_SECRET_KEY = '4#!avqa#suwsj7if7m6$u58jmy^bl@fyk(bf+_ss=4jkng6p_h'
+DEFAULT_SECRET_KEY = 'secretsecret'
 SECRET_KEY = os.getenv('SECRET_KEY', DEFAULT_SECRET_KEY)
 
 MIDDLEWARE = [

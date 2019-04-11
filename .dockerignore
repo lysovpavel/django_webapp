@@ -3,3 +3,7 @@ __pycache__/
 public
 .idea
 .env
+.vscode
+.history
+postgresql
+frontend/src/node_modules/

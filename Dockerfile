@@ -11,7 +11,8 @@ RUN pip3 install -r requirements.txt
 
 WORKDIR /code
 
-COPY . /code/
+COPY backend /code/backend/
+COPY frontend /code/frontend/
 
 WORKDIR /code/backend
 
