@@ -60,6 +60,7 @@ AUTH_USER_MODEL = 'user.User'
 
 LOGIN_REDIRECT_URL = '/'
 
+SITE_ID = os.getenv('SITE_ID') or 1
 SITE_URL = os.getenv('SITE_URL')
 
 DEFAULT_PAGE_SIZE = 9
