@@ -38,7 +38,7 @@ test:
     POSTGRES_PORT: ''
     TEST: 1
   script:
-    - ./backend/manage.py qa
+    - python3 ./backend/manage.py qa
 
 #release-image:
 #  stage: release
