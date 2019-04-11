@@ -33,8 +33,7 @@ PROJECT_APPS = [
     'config',
     'content',
     'user',
+    'garpix_qa',
 ]
 
-INSTALLED_APPS = (VENDOR_APPS
-                  + DJANGO_APPS
-                  + PROJECT_APPS)
+INSTALLED_APPS = (VENDOR_APPS + DJANGO_APPS + PROJECT_APPS)

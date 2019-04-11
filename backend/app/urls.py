@@ -9,8 +9,7 @@ from config.views import robots_txt, sitemap_view
 from django.contrib.sitemaps.views import sitemap
 from django.http import Http404
 from multiurl import ContinueResolving, multiurl
-from django.http import Http404, HttpResponse
-from django.contrib import admin
+from django.http import HttpResponse
 
 
 urlpatterns = [
@@ -41,4 +40,3 @@ urlpatterns += i18n_patterns(
     ),
     prefix_default_language=settings.USE_DEFAULT_LANGUAGE_PREFIX,
 )
-

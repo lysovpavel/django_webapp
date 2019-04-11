@@ -93,3 +93,4 @@ websocket-client==0.56.0
 ./vendor/garpix-utils-0.4.1.tar.gz
 ./vendor/garpix-page-0.3.2.tar.gz
 ./vendor/garpix-menu-0.1.10.tar.gz
+./vendor/garpix-qa-0.1.2.tar.gz

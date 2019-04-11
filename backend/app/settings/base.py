@@ -70,5 +70,3 @@ RECAPTCHA_PRIVATE_KEY = 'get_key_from_google'
 RECAPTCHA_PUBLIC_KEY = 'get_key_from_google'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
-
-

@@ -1,7 +1,7 @@
 from django.http import Http404, HttpResponse
-from django.contrib.sitemaps import GenericSitemap
+# from django.contrib.sitemaps import GenericSitemap
 from .models import SiteConfiguration
-from django.utils.timezone import now
+# from django.utils.timezone import now
 
 
 def robots_txt(request):
