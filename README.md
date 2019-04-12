@@ -29,6 +29,45 @@ cp example.env .env
 virtualenv -p python3.6 venv
 ```
 
+Поднимаем базу данных и redis с помощью докера
+
+```bash
+docker-compose up -d
+```
+
+Активируем виртуальное окружение
+
+```bash
+source venv/bin/activate
+```
+
+Устанавливаем зависимости, применяем миграции
+
+```bash
+pip install -r requirements.txt
+
+python backend/manage.py migrate
+```
+
+Создаем суперпользователя следующей командой и отвечаем на вопросы, которые задаст система
+
+```bash
+python backend/manage.py createsuperuser
+```
+
+Запускаем сервер
+
+```bash
+python backend/manage.py runserver
+```
+
+Заходим в админку http://localhost:8000/admin/ с только что созданными логином и паролем.
+
+Переходим в раздел Сайты http://localhost:8000/admin/sites/site/ и изменяем запись `example.com`
+на `localhost:8000`.
+
+
+
 # Разработка
 
 Поднимаем базу данных и redis с помощью докера
