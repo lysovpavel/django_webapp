@@ -66,7 +66,7 @@ python backend/manage.py runserver
 Переходим в раздел Сайты http://localhost:8000/admin/sites/site/ и изменяем запись `example.com`
 на `localhost:8000`.
 
-
+Создать страницу с Названием "Главная", указать ей пустой ЧПУ.
 
 # Разработка
 
