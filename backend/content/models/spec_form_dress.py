@@ -3,7 +3,7 @@ from django.conf import settings
 from .abstract_product import AbstractProduct
 
 
-class FormDress(AbstractProduct):
+class SpecFormDress(AbstractProduct):
     company = models.CharField(max_length=150, verbose_name="Название компании", null=True)
     type = models.IntegerField(default=0, verbose_name="Тип", choices=settings.SPEC_DRESS_TYPES, blank=False)
     cloth_density = models.IntegerField(default=1, verbose_name="Плотность ткани",
@@ -17,7 +17,7 @@ class FormDress(AbstractProduct):
 
     class Meta:
         verbose_name = "Спец одежда"
-        verbose_plural = "Спец одежда"
-        sort = ('-created_at', )
+        verbose_name_plural = "Спец одежда"
+        ordering = ('-created_at',)
 
 

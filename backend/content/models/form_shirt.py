@@ -15,5 +15,5 @@ class FormShirt(AbstractProduct):
 
     class Meta:
         verbose_name = "Форменная одежда"
-        verbose_plural = "Форменная одежда"
-        sort = ('-created_at',)
+        verbose_name_plural = "Форменная одежда"
+        ordering = ('-created_at',)

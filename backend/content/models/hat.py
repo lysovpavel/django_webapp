@@ -21,5 +21,5 @@ class Hat(AbstractProduct):
 
     class Meta:
         verbose_name = "Головной убор"
-        verbose_plural = "Головные уборы"
-        sort = ('-created_at', )
+        verbose_name_plural = "Головные уборы"
+        ordering = ('-created_at',)
