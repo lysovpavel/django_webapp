@@ -19,3 +19,5 @@ class FormDress(AbstractProduct):
         verbose_name = "Спец одежда"
         verbose_plural = "Спец одежда"
         sort = ('-created_at', )
+
+
