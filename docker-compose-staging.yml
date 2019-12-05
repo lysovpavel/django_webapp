@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+
+  server:
+    image: nginx:alpine
+    restart: always
+    depends_on:
+      - web
+    ports:
+     - '7050:80'
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf
+     - ./public:/code/public
+
+  web:
+    image: registry.gitlab.com/garpix/webapp/NAME_OF_THE_PROJECT:latest
+    command: sh -c "/code/conf/run.sh"
+    restart: always
+    env_file:
+    - .env
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./public:/code/public
+
+  db:
+    image: postgres:10-alpine
+    restart: always
+    env_file:
+    - .env
+    volumes:
+    - ./postgres/data:/var/lib/postgresql/data
+    - ./postgres/dumps:/dumps
+
+  redis:
+     image: redis:alpine
+     restart: always
+
+  celery:
+    image: registry.gitlab.com/garpix/webapp/NAME_OF_THE_PROJECT:latest
+    env_file:
+    - .env
+    command: celery -A app worker --loglevel=info -B
+    restart: always
+    depends_on:
+    - db
+    - redis
+    - web
+    volumes:
+    - ./public:/code/public

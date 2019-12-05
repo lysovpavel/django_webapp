@@ -11,6 +11,7 @@ WORKDIR /code
 
 COPY backend /code/backend/
 COPY frontend /code/frontend/
+COPY conf /code/conf
 
 WORKDIR /code/backend
 

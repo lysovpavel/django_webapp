@@ -11,8 +11,8 @@ services:
 stages:
   - build
   - test
-#  - release
-#  - deploy
+  # - release
+  # - deploy
 
 build:
   stage: build
@@ -40,23 +40,35 @@ test:
   script:
     - python3 ./backend/manage.py qa
 
-#release-image:
-#  stage: release
-#  script:
-#    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-#    - docker pull $CONTAINER_TEST_IMAGE
-#    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
-#    - docker push $CONTAINER_RELEASE_IMAGE
-#  only:
-#    - staging
-#    - master
-#
-#deploy:
-#  image: garpix/gitlab_deploy
-#  stage: deploy
-#  script:
-#    - eval $(ssh-agent -s)
-#    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-#    - ssh -o StrictHostKeyChecking=no root@$SERVER bash /home/garpix/www/server/deploy.sh
-#  only:
-#    - staging
+release-image:
+  stage: release
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker pull $CONTAINER_TEST_IMAGE
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+  only:
+    - staging
+    - master
+
+# deploy to staging:
+#   image: garpix/gitlab_deploy
+#   stage: deploy
+#   script:
+#     - eval $(ssh-agent -s)
+      # DONT FORGET TO ADD SSH_PRIVATE_KEY
+#     - ssh-add <(echo "$SSH_PRIVATE_KEY")
+#     - ssh -o StrictHostKeyChecking=no -p 9022 garpix@host.staging.garpix.com bash /home/garpix/www/SET_INSTALATION_PATH/deploy.sh
+#   only:
+#     - staging
+
+# deploy to production:
+#   image: garpix/gitlab_deploy
+#   stage: deploy
+#   script:
+#     - eval $(ssh-agent -s)
+#     - ssh-add <(echo "$SSH_PRIVATE_KEY")
+#     - ssh -o StrictHostKeyChecking=no -p 22 root@SET_SITE_NAME bash /home/www/SET_INSTALATION_PATH/deploy.sh
+#   only:
+#     - master
+#   when: manual
