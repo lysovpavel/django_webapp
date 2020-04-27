@@ -55,7 +55,7 @@ protobuf==3.7.1
 psycopg2-binary==2.8.1
 pyasn1==0.4.5
 pyasn1-modules==0.2.4
-pyfcm==1.4.5
+pyfcm==1.4.7
 pyparsing==2.4.0
 pyrsistent==0.14.11
 python-dateutil==2.8.0
@@ -86,6 +86,6 @@ websocket-client==0.56.0
 ./vendor/garpix-admin-0.1.4.tar.gz
 ./vendor/garpix-notify-0.3.30.tar.gz
 ./vendor/garpix-utils-0.5.4.tar.gz
-./vendor/garpix-page-0.4.5.tar.gz
+./vendor/garpix-page-0.6.0.tar.gz
 ./vendor/garpix-menu-0.1.15.tar.gz
 ./vendor/garpix-qa-0.1.3.tar.gz
