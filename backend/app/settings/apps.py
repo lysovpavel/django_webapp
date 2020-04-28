@@ -35,6 +35,7 @@ PROJECT_APPS = [
     'content',
     'user',
     'garpix_qa',
+    'garpix_reclaim',
 ]
 
 INSTALLED_APPS = (VENDOR_APPS + DJANGO_APPS + PROJECT_APPS)
