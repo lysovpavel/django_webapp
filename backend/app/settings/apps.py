@@ -1,7 +1,5 @@
 VENDOR_APPS = [
     'solo',
-    'dbbackup',
-    'dbbackup_ui',
     'fcm_django',
     'easy_thumbnails',
     'garpix_admin',
@@ -9,6 +7,7 @@ VENDOR_APPS = [
     'garpix_utils',
     'garpix_page',
     'garpix_menu',
+    'garpix_event',
     'ckeditor',
     'mptt',
     'modeltranslation',

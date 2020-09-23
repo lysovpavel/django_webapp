@@ -3,4 +3,5 @@ MIGRATION_MODULES = {
     'garpix_menu': 'app.migrations.garpix_menu',
     'garpix_notify': 'app.migrations.garpix_notify',
     'garpix_reclaim': 'app.migrations.garpix_reclaim',
+    'garpix_event': 'app.migrations.garpix_event',
 }
