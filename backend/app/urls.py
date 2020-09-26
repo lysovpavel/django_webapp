@@ -14,7 +14,6 @@ from django.http import HttpResponse
 
 urlpatterns = [
     re_path(r'^i18n/', include('django.conf.urls.i18n')),
-    path('admin/backups/', include('dbbackup_ui.urls')),
     path('admin/', admin.site.urls),
     path('admin/auth/', include('django.contrib.auth.urls')),
     path('robots.txt', robots_txt, name='robots_txt'),
