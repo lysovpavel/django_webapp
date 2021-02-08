@@ -1,7 +1,11 @@
 from django.contrib.auth.models import AbstractUser
 
+from django.db import models
+
 
 class User(AbstractUser):
+
+    telegram_id = models.CharField('Telegram ID', max_length=150, blank=True, default='')
 
     class Meta:
         verbose_name = 'Пользователь'

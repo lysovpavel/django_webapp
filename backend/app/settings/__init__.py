@@ -17,5 +17,6 @@ from .menu import *
 from .migrations import *
 from .menu import *
 from .drf import *
-from .youtube import *
 from .events import *
+from .nats import *
+

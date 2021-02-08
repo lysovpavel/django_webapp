@@ -108,14 +108,6 @@ urllib3==1.25.10
 viberbot==1.0.11
 websocket-client==0.57.0
 zipp==3.2.0
-
---index-url https://pypiserver.garpix.com/simple
-garpix-abstract==1.1.1
-garpix-appinfo==1.0.0
-garpix-utils==1.0.0
-garpix-event==1.0.0
-garpix-qa==1.0.0
-garpix-notify==1.0.4
-garpix-page==1.0.2
-garpix-menu==1.0.0
-garpix-admin==1.0.0
+nats-python==0.7.0
+asyncio-nats-client==0.11.4
+drf-yasg==1.17.1

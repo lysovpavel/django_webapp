@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.8'
 
 services:
 
@@ -13,8 +13,3 @@ services:
     volumes:
       - ./postgresql/dumps:/code/dumps
       - ./postgresql/data:/var/lib/postgresql/data
-
-  redis:
-    image: redis:alpine
-    ports:
-      - '6379:6379'

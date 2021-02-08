@@ -4,7 +4,6 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
-from garpix_page.views.page import PageView
 from config.views import robots_txt, sitemap_view
 from django.contrib.sitemaps.views import sitemap
 from django.http import Http404
@@ -32,9 +31,6 @@ urlpatterns += [
 
 urlpatterns += i18n_patterns(
     multiurl(
-        path('', PageView.as_view()),
-        re_path(r'^(?P<url>.*?)$', PageView.as_view(), name='page'),
-        re_path(r'^(?P<url>.*?)/$', PageView.as_view(), name='page'),
         catch=(Http404, ContinueResolving),
     ),
     prefix_default_language=settings.USE_DEFAULT_LANGUAGE_PREFIX,
